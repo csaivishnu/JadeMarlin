@@ -11,13 +11,12 @@ struct MailBox {
     uint32_t IRQ_OUT_CLR;							// 12-15 bytes
     uint8_t head;
     uint8_t tail;
-    uint8_t bufferSizeUsed;
-    uint8_t buffer[237];
+    uint8_t buffer[238];
 
     MailBox();
 };
 
-void enqueue(MailBox& mailBox, std::vector<uint32_t>& commandData);
-std::vector<uint32_t> dequeue(MailBox& mailBox, int& success);
+void enqueue(MailBox& mailBox, std::vector<uint8_t>& commandData);
+std::vector<uint8_t> dequeue(MailBox& mailBox);
 
 #endif
